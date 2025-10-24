@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuneSpace – Helle Dünen</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+  /* -------- Farbpalette -------- */
+  :root {
+    --sand1: #fff8f0;
+    --sand2: #fff2df;
+    --sand3: #fce6c7;
+    --sand4: #f8d8a8;
+    --sand5: #f4ca88;
+    --sand6: #f0bc6b;
+  }
+
+  /* -------- Navbar -------- */
+  .navbar {
+    position: fixed; top:0; left:0; width:100%; height:70px; z-index:10;
+    display:flex; align-items:center; justify-content: space-between;
+    padding:0 2rem;
+    background: url('azulejo.jpg') repeat;
+    background-size: 60px 60px;
+  }
+  .navbar .logo { font-family:'Cormorant Garamond', serif; font-size:1.8rem; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,0.3);}
+  .navbar a { color:white; text-decoration:none; margin-left:2rem; font-family:'Poppins',sans-serif;}
+
+  /* -------- Dünen-Hauptteil -------- */
+  .dunes-static {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top:70px;
+    background: var(--sand1);
+    overflow: hidden;
+  }
+
+  .dune {
+    position: absolute;
+    width: 200%;
+    height: 50%;
+    left: -50%;
+    border-radius: 50%;
+  }
+
+  .highlight {
+    position: absolute;
+    width: 200%; height: 50%;
+    left: -50%; top:0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 60% 35%, rgba(255,255,255,0.1), transparent 60%);
+    pointer-events: none;
+    transform: translateY(0);
+    transition: transform 0.1s linear;
+  }
+
+  /* Dünen mit Palette und feinen Übergängen */
+  .dune1 { bottom:0; transform:rotate(-15deg); background: linear-gradient(135deg, var(--sand1) 0%, var(--sand2) 25%, var(--sand3) 50%, var(--sand4) 75%, var(--sand5) 100%);}
+  .dune2 { bottom:5%; transform:rotate(-18deg); background: linear-gradient(135deg, var(--sand2) 0%, var(--sand3) 25%, var(--sand4) 50%, var(--sand5) 75%, var(--sand6) 100%);}
+  .dune3 { bottom:10%; transform:rotate(-20deg); background: linear-gradient(135deg, var(--sand1) 0%, var(--sand3) 25%, var(--sand4) 50%, var(--sand5) 75%, var(--sand6) 100%);}
+  .dune4 { bottom:15%; transform:rotate(-22deg); background: linear-gradient(135deg, var(--sand2) 0%, var(--sand4) 25%, var(--sand5) 50%, var(--sand6) 100%);}
+  .dune5 { bottom:20%; transform:rotate(-25deg); background: linear-gradient(135deg, var(--sand3) 0%, var(--sand4) 25%, var(--sand5) 50%, var(--sand6) 100%);}
+
+  /* -------- Hero-Content -------- */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    top: 40%;
+    transform: translateY(-40%);
+    color: #3a2611;
+  }
+  h1 { font-family:'Cormorant Garamond', serif; font-size:3rem; margin-bottom:1rem;}
+  p { font-size:1.2rem; margin-bottom:2rem;}
+  .cta { display:inline-block; background-color:#e3c39c; color:white; padding:0.8rem 1.8rem; border-radius:2rem; text-decoration:none; transition: background 0.3s, transform 0.2s;}
+  .cta:hover { background-color:#d1ae7c; transform:translateY(-2px); }
+
+  /* -------- Responsiv -------- */
+  @media (max-width: 768px){
+    .dune { width:250%; height:40%; left:-75%; }
+    .dune2 { bottom:8%; transform:rotate(-15deg);}
+    .dune3 { bottom:12%; transform:rotate(-17deg);}
+    .dune4 { bottom:16%; transform:rotate(-18deg);}
+    .dune5 { bottom:20%; transform:rotate(-20deg);}
+    .hero-content { top:35%; transform:translateY(-35%); padding:0 1rem;}
+    h1 { font-size:2rem; }
+    p { font-size:1rem; }
+    .cta { padding:0.6rem 1.2rem; font-size:0.9rem;}
+    .navbar { padding:0 1rem;}
+    .navbar a { margin-left:1rem; font-size:0.9rem;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">DuneSpace</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Dünen-Hauptteil -->
+  <main class="dunes-static">
+    <div class="dune dune1"><div class="highlight"></div></div>
+    <div class="dune dune2"><div class="highlight"></div></div>
+    <div class="dune dune3"><div class="highlight"></div></div>
+    <div class="dune dune4"><div class="highlight"></div></div>
+    <div class="dune dune5"><div class="highlight"></div></div>
+
+    <div class="hero-content">
+      <h1>Whispering Dunes of Inspiration</h1>
+      <p>Ideas drift like sand in the wind.</p>
+      <a href="#" class="cta">Explore Now</a>
+    </div>
+  </main>
+
+  <!-- --- JS extern einbinden --- -->
+  <script src="script.js"></script>
+</body>
+</html>
